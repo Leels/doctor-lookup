@@ -16,9 +16,7 @@ $(document).ready(function() {
     })();
 
     function getElements(response) {
-      $('.showJoke').text(`${response.data.practices.location_slug}`);
-      console.log(getElements(response))
-
+      $('.showData').text(`${response.data[0].profile.first_name}` + " " + `${response.data[0].profile.last_name}` + "," + `${response.data[0].profile.title}`);
     }
   });
 });

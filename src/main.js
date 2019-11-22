@@ -18,8 +18,11 @@ $(document).ready(function() {
     })();
 
     function getElements(response) {
-      $('.showData').text(`${response.data[0].profile.first_name}` + " " + `${response.data[0].profile.last_name}` + "," + `${response.data[0].profile.title}`);
+      $('.showData').text("")
+      for (let i = 0; i < response.data.length; i++){
+      $('.showData').append(`${response.data[i].profile.first_name}` + " " + `${response.data[i].profile.last_name}` + "," + `${response.data[i].profile.title}` + `<br>`);
     }
+  }
      document.getElementById("doc-search").reset();
   });
 });

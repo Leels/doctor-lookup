@@ -9,7 +9,7 @@ $(document).ready(function() {
   $('#doc-search').submit(function(event) {
     event.preventDefault();
 
-
+    console.log("hi");
     (async () => {
       let betterDoctorApi = new BetterDoctorApi();
       let response = await betterDoctorApi.getApiData();
@@ -17,7 +17,9 @@ $(document).ready(function() {
     })();
 
     function getElements(response) {
-      $('.doctor-info').text(response);
+      $('.showJoke').text(`${response.joke}`);
+      $('.showSetup').text(`${response.setup}`);
+      $('.showDelivery').text(`${response.delivery}`);
     }
 
   });

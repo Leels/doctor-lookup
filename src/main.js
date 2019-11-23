@@ -9,7 +9,7 @@ $(document).ready(function() {
   $('#doc-search').submit(function(event) {
     event.preventDefault();
 
-     let concern= $("input#concern").val();
+    let concern= $("input#concern").val();
 
     (async () => {
       let betterDoctorApi = new BetterDoctorApi();
@@ -19,10 +19,14 @@ $(document).ready(function() {
 
     function getElements(response) {
       $('.showData').text("")
+      if (response.data.length === 0){
+        $('.showData').text("There are no doctors in the Portland area that treat that issue.");
+      } else {
       for (let i = 0; i < response.data.length; i++){
-      $('.showData').append(`${response.data[i].profile.first_name}` + " " + `${response.data[i].profile.last_name}` + "," + `${response.data[i].profile.title}` + `<br>`);
+        $('.showData').append(`${response.data[i].profile.first_name}` + " " + `${response.data[i].profile.last_name}` + "," + `${response.data[i].profile.title}` + `<br>`);
+      }
     }
   }
-     document.getElementById("doc-search").reset();
+    document.getElementById("doc-search").reset();
   });
 });

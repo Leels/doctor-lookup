@@ -23,7 +23,7 @@ $(document).ready(function() {
         $('.showData').text("There are no doctors in the Portland area that treat that issue.");
       } else {
       for (let i = 0; i < response.data.length; i++){
-        $('.showData').append(`${response.data[i].profile.first_name}` + " " + `${response.data[i].profile.last_name}` + "," + `${response.data[i].profile.title}` + `<br>`);
+        $('.showData').append(`${response.data[i].profile.first_name}` + " " + `${response.data[i].profile.last_name}` + "," + `${response.data[i].profile.title}` + `${response.data[i].practices[0].name}` + `<br>`);
       }
     }
   }

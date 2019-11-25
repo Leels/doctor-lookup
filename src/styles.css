@@ -3,6 +3,11 @@ body {
   color: #008b8b;
 }
 
+.jumbotron {
+  border-radius: 30px;
+  border: solid #008b8b;
+}
+
 h1 {
   text-align: center;
   font-size: 400%;

@@ -3,15 +3,28 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { BetterDoctorApi } from './../src/apiCalls.js';
+import { GiphyApi } from './../src/apiCalls.js';
 
 
 $(document).ready(function() {
+  //Giphy API//
+  (async () => {
+    let giphyApi = new GiphyApi();
+    let response2 = await giphyApi.getGiphyApiData();
+    getGiphyElements(response2);
+  })();
+
+  function getGiphyElements(response2) {
+    $('.image').append(`<img src="${response2.data.images.downsized.url}">`);
+  }
   $('#doc-search').submit(function(event) {
     event.preventDefault();
 
     let concern= $("input#concern").val();
     let name= $("input#name").val();
 
+
+    //BetterDoctor Api
     (async () => {
       let betterDoctorApi = new BetterDoctorApi(concern, name);
       let response = await betterDoctorApi.getApiData(concern, name);

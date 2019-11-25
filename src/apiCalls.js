@@ -7,3 +7,13 @@ export class BetterDoctorApi {
     console.error("There was an error handling your request: " + error.message);
   }
 }
+
+export class GiphyApi {
+  async getGiphyApiData() {
+    let response2 = await fetch(`https://api.giphy.com/v1/gifs/A9MftKr3J3lra?api_key=${process.env.OTHER_API_KEY}`);
+    let jsonifiedResponse2 = await response2.json();
+    return jsonifiedResponse2;
+  } catch(error) {
+    console.error("There was an error handling your request: " + error.message);
+  }
+}

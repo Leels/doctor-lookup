@@ -12,7 +12,7 @@ $(document).ready(function() {
     let concern= $("input#concern").val();
 
     (async () => {
-      let betterDoctorApi = new BetterDoctorApi();
+      let betterDoctorApi = new BetterDoctorApi(concern);
       let response = await betterDoctorApi.getApiData(concern);
       getElements(response);
     })();
@@ -22,11 +22,11 @@ $(document).ready(function() {
       if (response.data.length === 0){
         $('.showData').text("There are no doctors in the Portland area that treat that issue.");
       } else {
-      for (let i = 0; i < response.data.length; i++){
-        $('.showData').append(`${response.data[i].profile.first_name} ${response.data[i].profile.last_name},  ${response.data[i].profile.title} <br>  ${response.data[i].practices[0].name} <br> ${response.data[i].practices[0].visit_address.street} ${response.data[i].practices[0].visit_address.city}, ${response.data[i].practices[0].visit_address.state} <br> Phone: ${response.data[i].practices[0].phones[0].number} <br> Accepting new patients: ${response.data[i].practices[0].accepts_new_patients} <br> <br>`);
+        for (let i = 0; i < response.data.length; i++){
+          $('.showData').append(`${response.data[i].profile.first_name} ${response.data[i].profile.last_name},  ${response.data[i].profile.title} <br>  ${response.data[i].practices[0].name} <br> ${response.data[i].practices[0].visit_address.street} ${response.data[i].practices[0].visit_address.city}, ${response.data[i].practices[0].visit_address.state} <br>  Phone: ${response.data[i].practices[0].phones[0].number} <br> Accepting new patients: ${response.data[i].practices[0].accepts_new_patients} <br> <br>`);
+        }
       }
     }
-  }
     document.getElementById("doc-search").reset();
   });
 });

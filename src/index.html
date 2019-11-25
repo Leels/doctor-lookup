@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Doctor Lookup</title>
+  <title>Find a Doc</title>
 </head>
 <body>
   <div class="container">
     <form id=doc-search>
-      <div class="jumbotron">
-        <h1>Doctor Lookup</h1>
+      <div class="jumbotron jumbotron-fluid">
+        <h1>Find a Doc</h1>
       </div>
+      <h3>We match you with Providers in the Portland Area</h3>
       <div class="row">
         <div class="col-md-4">
-          <h3>Find a doctor in your area.</h3>
-          <label>Search by medical concern:</label>
-          <input id="concern" class="form-control" type="text" name="concern">
+          <h4>Search by medical concern:</h4>
+          <input id="concern" class="form-control" type="text" name="input" placeholder="e.g. earwax build-up">
+        </div>
+        <div class="col-md-4">
+          <h4>Search by Provider's name:</h4>
+          <input id="name" class="form-control" type="text" name="input" placeholder="e.g. John Dolittle">
         </div>
       </div>
-      <button type="submit" class="btn btn-outline-primary" id="search">Search</button>
+      <button type="submit" class="btn btn-outline-info" id="search">Search</button>
+      <button type="reset" class="btn btn-outline-info" value="Reset" onClick="window.location.reload()">Redo Search</button>
     </form>
     <div class="errors"></div>
-    <ul class="showData"></ul>
+    <div class="showData"></div>
   </div>
 </body>
 </html>

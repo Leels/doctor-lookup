@@ -19,7 +19,7 @@
 * Register for an API key on [BetterDoctor](https://developer.betterdoctor.com/)
 * Create .env file and add API key
 * Ensure Node.js is installed
-* In terminal enter npm install
+* In terminal, enter npm install
 
 #### Please let me know if you have any problems!
 
@@ -29,8 +29,8 @@
 * Bootstrap
 * JavaScript
 * jQuery
-* Node
-* Jest
+* Node.js
+
 
 ### Further Exploration
 
